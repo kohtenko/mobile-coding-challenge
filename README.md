@@ -12,7 +12,7 @@ This is a coding challenge for prospective mobile developer applicants applying 
 - [x] Grid of photos should preserve the aspect ratio of the photos it's displaying, meaning you shouldn't crop the image in any way.
 - [x] App should work in both portrait and landscape orientations of the device.
 - [x] Grid should support pagination, i.e. you can scroll on grid of photos infinitely.
-- [ ] When user taps on a photo on the grid it should show only the tapped photo in full screen with more information about the photo.
+- [x] When user taps on a photo on the grid it should show only the tapped photo in full screen with more information about the photo.
 - [x] When user swipes on a photo in full screen, it should show the the next photo and preserve current photo's location on the grid, so when she dismisses the full screen, grid of photos should contain the last photo she saw in photo details.
 
 ### Evaluation:
