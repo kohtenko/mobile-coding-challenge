@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photos Collection View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="PhotosCollectionViewController" customModule="TradeRevAssessment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="whi-7E-N7d">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="xPR-gb-W2Y">
+                                    <size key="itemSize" width="274" height="294"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="5CN-rx-R9a" customClass="PhotoCollectionViewCell" customModule="TradeRevAssessment" customModuleProvider="target">
+                                        <rect key="frame" x="70" y="0.0" width="274" height="294"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="274" height="294"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MdU-34-qbI">
+                                                    <rect key="frame" x="1" y="1" width="272" height="292"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLy-g1-TFu">
+                                                            <rect key="frame" x="1" y="1" width="270" height="290"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DTl-hu-pbd">
+                                                            <rect key="frame" x="1" y="1" width="270" height="290"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="CLy-g1-TFu" firstAttribute="top" secondItem="MdU-34-qbI" secondAttribute="top" constant="1" id="3hL-kj-MEU"/>
+                                                        <constraint firstAttribute="trailing" secondItem="CLy-g1-TFu" secondAttribute="trailing" constant="1" id="8Bw-ZJ-Dpb"/>
+                                                        <constraint firstAttribute="bottom" secondItem="CLy-g1-TFu" secondAttribute="bottom" constant="1" id="QpH-hq-N1k"/>
+                                                        <constraint firstAttribute="bottom" secondItem="DTl-hu-pbd" secondAttribute="bottom" constant="1" id="UoS-aV-ZgX"/>
+                                                        <constraint firstAttribute="trailing" secondItem="DTl-hu-pbd" secondAttribute="trailing" constant="1" id="bBg-f1-hlJ"/>
+                                                        <constraint firstItem="DTl-hu-pbd" firstAttribute="leading" secondItem="MdU-34-qbI" secondAttribute="leading" constant="1" id="k9E-dZ-L1n"/>
+                                                        <constraint firstItem="DTl-hu-pbd" firstAttribute="top" secondItem="MdU-34-qbI" secondAttribute="top" constant="1" id="wvg-94-HFZ"/>
+                                                        <constraint firstItem="CLy-g1-TFu" firstAttribute="leading" secondItem="MdU-34-qbI" secondAttribute="leading" constant="1" id="xec-An-SC5"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="MdU-34-qbI" firstAttribute="top" secondItem="5CN-rx-R9a" secondAttribute="top" constant="1" id="2JE-mS-rKt"/>
+                                            <constraint firstItem="MdU-34-qbI" firstAttribute="leading" secondItem="5CN-rx-R9a" secondAttribute="leading" constant="1" id="KhV-mQ-GaJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="MdU-34-qbI" secondAttribute="trailing" constant="1" id="Zxa-al-M7i"/>
+                                            <constraint firstAttribute="bottom" secondItem="MdU-34-qbI" secondAttribute="bottom" constant="1" id="ics-wA-xDu"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="DTl-hu-pbd" id="edU-Np-QCR"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="9uo-Qs-UIN"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="a4T-88-5VO"/>
+                                    <outlet property="prefetchDataSource" destination="BYZ-38-t0r" id="cbx-6B-wKh"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="whi-7E-N7d" secondAttribute="trailing" id="2yN-Ca-9wX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="whi-7E-N7d" secondAttribute="bottom" id="97q-Hp-gUl"/>
+                            <constraint firstItem="whi-7E-N7d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="XZZ-4f-80X"/>
+                            <constraint firstItem="whi-7E-N7d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="re9-cq-cIa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="whi-7E-N7d" id="PH2-Da-wUF"/>
+                        <segue destination="c3c-FR-9HJ" kind="presentation" identifier="FullScreen" id="nvS-xl-OUe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-784.05797101449286" y="20.758928571428569"/>
+        </scene>
+        <!--Full Screen View Controller-->
+        <scene sceneID="RP8-4j-hnv">
+            <objects>
+                <viewController storyboardIdentifier="FullScreenViewController" id="c3c-FR-9HJ" customClass="FullScreenViewController" customModule="TradeRevAssessment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mTl-Dk-AVp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QOM-HQ-hux">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="xpY-MG-NOb">
+                                    <size key="itemSize" width="414" height="826"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FullScreenImageCell" id="bQ8-Y3-UG9" customClass="FullScreenCollectionViewCell" customModule="TradeRevAssessment" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-4" width="414" height="826"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="826"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="fZt-kV-3wr">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="826"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNF-Bh-MTL">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="826"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dc4-jg-mI5" customClass="FullScreenView" customModule="TradeRevAssessment" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="826"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="dc4-jg-mI5" firstAttribute="leading" secondItem="WNF-Bh-MTL" secondAttribute="leading" id="N1r-1z-OSu"/>
+                                                                <constraint firstItem="dc4-jg-mI5" firstAttribute="top" secondItem="WNF-Bh-MTL" secondAttribute="top" id="RQi-oi-QhF"/>
+                                                                <constraint firstItem="dc4-jg-mI5" firstAttribute="centerY" secondItem="WNF-Bh-MTL" secondAttribute="centerY" id="TpP-Cu-lTg"/>
+                                                                <constraint firstAttribute="trailing" secondItem="dc4-jg-mI5" secondAttribute="trailing" id="bT4-Nx-m3c"/>
+                                                                <constraint firstAttribute="bottom" secondItem="dc4-jg-mI5" secondAttribute="bottom" id="vH7-77-Ljb"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="WNF-Bh-MTL" secondAttribute="bottom" id="Ago-5O-LUd"/>
+                                                        <constraint firstAttribute="trailing" secondItem="WNF-Bh-MTL" secondAttribute="trailing" id="ofE-ba-PFH"/>
+                                                        <constraint firstItem="WNF-Bh-MTL" firstAttribute="leading" secondItem="fZt-kV-3wr" secondAttribute="leading" id="puJ-Ax-Uhl"/>
+                                                        <constraint firstItem="WNF-Bh-MTL" firstAttribute="top" secondItem="fZt-kV-3wr" secondAttribute="top" id="uSd-kI-YUj"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="bQ8-Y3-UG9" id="Qlw-0E-9qC"/>
+                                                    </connections>
+                                                </scrollView>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="fZt-kV-3wr" firstAttribute="top" secondItem="bQ8-Y3-UG9" secondAttribute="top" id="6cL-hM-vAY"/>
+                                            <constraint firstAttribute="trailing" secondItem="fZt-kV-3wr" secondAttribute="trailing" id="GBo-Jn-pW5"/>
+                                            <constraint firstItem="WNF-Bh-MTL" firstAttribute="width" secondItem="bQ8-Y3-UG9" secondAttribute="width" id="TtY-gM-Gzo"/>
+                                            <constraint firstAttribute="bottom" secondItem="fZt-kV-3wr" secondAttribute="bottom" id="Xe0-9j-oxR"/>
+                                            <constraint firstItem="fZt-kV-3wr" firstAttribute="leading" secondItem="bQ8-Y3-UG9" secondAttribute="leading" id="XmO-Gl-eed"/>
+                                            <constraint firstItem="WNF-Bh-MTL" firstAttribute="height" secondItem="bQ8-Y3-UG9" secondAttribute="height" id="fDs-Zt-voJ"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="imageView" destination="dc4-jg-mI5" id="ZTv-8E-3RR"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="c3c-FR-9HJ" id="JuO-wj-lcL"/>
+                                    <outlet property="delegate" destination="c3c-FR-9HJ" id="A8Z-Ps-ERB"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryk-Nb-ImV">
+                                <rect key="frame" x="10" y="54" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="ilM-qA-qB8"/>
+                                </constraints>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissPressed" destination="c3c-FR-9HJ" eventType="touchUpInside" id="Fz6-t1-8dy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Yzp-tv-6Pd" firstAttribute="trailing" secondItem="QOM-HQ-hux" secondAttribute="trailing" id="Hwr-Qd-oj9"/>
+                            <constraint firstItem="Ryk-Nb-ImV" firstAttribute="top" secondItem="Yzp-tv-6Pd" secondAttribute="top" constant="10" id="Jg9-Ca-HvX"/>
+                            <constraint firstItem="QOM-HQ-hux" firstAttribute="leading" secondItem="Yzp-tv-6Pd" secondAttribute="leading" id="NoH-VA-qFC"/>
+                            <constraint firstItem="Ryk-Nb-ImV" firstAttribute="leading" secondItem="Yzp-tv-6Pd" secondAttribute="leading" constant="10" id="mRY-Xs-vXN"/>
+                            <constraint firstItem="Yzp-tv-6Pd" firstAttribute="bottom" secondItem="QOM-HQ-hux" secondAttribute="bottom" id="pA8-EX-Gpz"/>
+                            <constraint firstItem="QOM-HQ-hux" firstAttribute="top" secondItem="Yzp-tv-6Pd" secondAttribute="top" id="tmI-FS-XUv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yzp-tv-6Pd"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="collectionView" destination="QOM-HQ-hux" id="N3n-pg-rbR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uBb-bK-B81" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
+        </scene>
+    </scenes>
+</document>

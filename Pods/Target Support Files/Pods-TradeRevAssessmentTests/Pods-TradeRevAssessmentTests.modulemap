@@ -1,0 +1,6 @@
+framework module Pods_TradeRevAssessmentTests {
+  umbrella header "Pods-TradeRevAssessmentTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

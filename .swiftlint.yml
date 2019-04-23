@@ -1,0 +1,35 @@
+disabled_rules:
+  - type_name
+  - identifier_name
+  - nesting
+  - file_length
+  - cyclomatic_complexity
+  - leading_whitespace
+  - multiple_closures_with_trailing_closure
+  - modifier_order
+opt_in_rules:
+  - contains_over_first_not_nil
+  - empty_count
+  - first_where
+  - vertical_parameter_alignment_on_call
+  - overridden_super_call
+  - operator_usage_whitespace
+  - array_init
+  - closure_spacing
+  - anyobject_protocol
+  - empty_xctest_method
+  - explicit_init
+  - fatal_error_message
+  - identical_operands
+  - legacy_random
+  - let_var_whitespace
+  - redundant_nil_coalescing
+  - static_operator
+  - unused_private_declaration
+  - yoda_condition
+  - multiline_arguments
+  - multiline_parameters
+excluded:
+  - Pods
+
+line_length: 200
