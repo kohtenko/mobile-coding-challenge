@@ -33,7 +33,6 @@ class WebService {
     }
 
     func data(from endpoint: Endpoint) -> Observable<Data> {
-        print("Request: \(endpoint.urlString())")
         return sessionManager
             .rx
             .request(endpoint.method(),
@@ -41,13 +40,6 @@ class WebService {
                      headers: [Constants.acceptVersion: Constants.acceptVersionValue,
                                Constants.authorization: Constants.authorizationValue])
             .data()
-            .do(onNext: { (data) in
-                if let response = String(data: data, encoding: String.Encoding.utf8) {
-                    print("Response: \(response)")
-                } else {
-                    print("No Response")
-                }
-            })
     }
 
 }

@@ -19,9 +19,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
                 imageView.image = nil
                 return
             }
-
             Nuke.loadImage(with: thumbURL, into: imageView)
-
         }
     }
 

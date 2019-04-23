@@ -12,29 +12,56 @@ protocol TransitionDelegate: AnyObject {
     var currentIndex: Int { get set }
 }
 
-class FullScreenViewController: UIViewController, TransitionDelegate {
+class FullScreenViewController: UIViewController {
     var photos: [Image]?
-    var currentIndex = 0
-    var image: Image?
+    var startIndex = 0
     weak var transitionDelegate: TransitionDelegate?
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var imageDescriptionLabel: UILabel!
+
+    private var currentIndex: Int {
+        return Int(collectionView.contentOffset.x / collectionView.frame.width)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.reloadData()
+        setupCollectionView()
+    }
 
+    private func setupCollectionView() {
+        collectionView.reloadData()
         collectionView.setNeedsLayout()
         collectionView.layoutIfNeeded()
-
-        collectionView.scrollToItem(at: IndexPath(row: currentIndex, section: 0),
+        collectionView.scrollToItem(at: IndexPath(row: startIndex, section: 0),
                                     at: .centeredHorizontally,
                                     animated: false)
+        didEndScrolling()
     }
 
     @IBAction func dismissPressed() {
-        transitionDelegate?.currentIndex = Int(collectionView.contentOffset.x / collectionView.frame.width)
+        transitionDelegate?.currentIndex = currentIndex
         dismiss(animated: true)
+    }
+
+    @IBAction func tapGestureRecognized() {
+        let hidden = topView.isHidden
+        if hidden {
+            topView.alpha = 0
+            topView.isHidden = false
+            bottomView.alpha = 0
+            bottomView.isHidden = false
+        }
+        UIView.animate(withDuration: 0.5,
+                       animations: {
+                        self.topView.alpha = hidden ? 1 : 0
+                        self.bottomView.alpha = hidden ? 1 : 0
+        }) { (_) in
+            self.topView.isHidden = !hidden
+            self.bottomView.isHidden = !hidden
+        }
     }
 
 }
@@ -62,4 +89,19 @@ extension FullScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 
+}
+
+extension FullScreenViewController: UIScrollViewDelegate {
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        didEndScrolling()
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        didEndScrolling()
+    }
+
+    private func didEndScrolling() {
+        imageDescriptionLabel.text = photos?[currentIndex].imageDescription
+    }
 }

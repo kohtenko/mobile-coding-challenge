@@ -7,6 +7,8 @@ PODS:
   - RxAlamofire/Core (4.4.1):
     - Alamofire (~> 4.8)
     - RxSwift (~> 4.5)
+  - RxBlocking (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
   - RxSwift (4.5.0)
   - SwiftLint (0.31.0)
 
@@ -14,6 +16,7 @@ DEPENDENCIES:
   - Hero
   - Nuke
   - RxAlamofire
+  - RxBlocking
   - SwiftLint
 
 SPEC REPOS:
@@ -22,6 +25,7 @@ SPEC REPOS:
     - Hero
     - Nuke
     - RxAlamofire
+    - RxBlocking
     - RxSwift
     - SwiftLint
 
@@ -30,9 +34,10 @@ SPEC CHECKSUMS:
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   Nuke: d0782693c570cb4f79e2a187859ef7f06f19365d
   RxAlamofire: ed65f451f5a9a59419b0b9e705043dc01410edd9
+  RxBlocking: 79413e4d916f44bb3e113c5b2cc059e36fe58910
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: d0d674c7a45c0c76054f6ca015c60b3a04bea404
+PODFILE CHECKSUM: 7fd27c7e31731d1172a6c428ce45e886e73fd151
 
 COCOAPODS: 1.5.3

@@ -45,10 +45,14 @@ class PhotosCollectionViewController: UIViewController, TransitionDelegate {
                 self?.photos.append(contentsOf: images)
                 self?.collectionView.reloadData()
                 self?.isLoading = false
-            }) { [weak self](error) in
+            }) { [weak self] (error) in
                 print(error)
                 self?.isLoading = false
-                //TODO: Show error
+                let alert = UIAlertController(title: "Error",
+                                              message: error.localizedDescription,
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
         }.disposed(by: disposeBag)
 
         currentPage += 1
@@ -111,7 +115,7 @@ extension PhotosCollectionViewController {
         if let controller = segue.destination as? FullScreenViewController,
             let index = sender as? Int {
             controller.photos = photos
-            controller.currentIndex = index
+            controller.startIndex = index
             controller.transitionDelegate = self
         }
     }

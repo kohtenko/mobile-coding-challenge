@@ -9,7 +9,6 @@
 import UIKit
 
 class FullScreenCollectionViewCell: UICollectionViewCell {
-
     @IBOutlet weak var imageView: FullScreenView!
 }
 

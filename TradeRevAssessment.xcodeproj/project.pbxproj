@@ -23,6 +23,9 @@
 		38F90A15226EFDBA004FD543 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F90A14226EFDBA004FD543 /* PhotoCollectionViewCell.swift */; };
 		38F90A19226F16BF004FD543 /* FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F90A18226F16BF004FD543 /* FullScreenView.swift */; };
 		38F90A1B226F1876004FD543 /* FullScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F90A1A226F1876004FD543 /* FullScreenCollectionViewCell.swift */; };
+		38F90A1E226F4C4A004FD543 /* PhotosCollectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F90A1D226F4C4A004FD543 /* PhotosCollectionViewModelTests.swift */; };
+		38F90A20226F4D5C004FD543 /* FakeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F90A1F226F4D5C004FD543 /* FakeWebService.swift */; };
+		38F90A22226F4DE5004FD543 /* Photos_Success.json in Resources */ = {isa = PBXBuildFile; fileRef = 38F90A21226F4DE5004FD543 /* Photos_Success.json */; };
 		709B530AAD647ECB5A075CCC /* Pods_TradeRevAssessmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17DFA2071CBB462D9E901EF7 /* Pods_TradeRevAssessmentTests.framework */; };
 		CF5EA8F2E5B9E01CD10B172E /* Pods_TradeRevAssessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20024F21E3946DC993C0202 /* Pods_TradeRevAssessment.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +64,9 @@
 		38F90A14226EFDBA004FD543 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		38F90A18226F16BF004FD543 /* FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenView.swift; sourceTree = "<group>"; };
 		38F90A1A226F1876004FD543 /* FullScreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCollectionViewCell.swift; sourceTree = "<group>"; };
+		38F90A1D226F4C4A004FD543 /* PhotosCollectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewModelTests.swift; sourceTree = "<group>"; };
+		38F90A1F226F4D5C004FD543 /* FakeWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeWebService.swift; sourceTree = "<group>"; };
+		38F90A21226F4DE5004FD543 /* Photos_Success.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Photos_Success.json; sourceTree = "<group>"; };
 		C20024F21E3946DC993C0202 /* Pods_TradeRevAssessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TradeRevAssessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC72E8641FE1EDF3375093A4 /* Pods-TradeRevAssessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeRevAssessment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TradeRevAssessment/Pods-TradeRevAssessment.debug.xcconfig"; sourceTree = "<group>"; };
 		E8F59B382847AA81137309E5 /* Pods-TradeRevAssessmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeRevAssessmentTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TradeRevAssessmentTests/Pods-TradeRevAssessmentTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				38F909F7226E2223004FD543 /* Info.plist */,
+				38F90A21226F4DE5004FD543 /* Photos_Success.json */,
+				38F90A1F226F4D5C004FD543 /* FakeWebService.swift */,
+				38F90A1D226F4C4A004FD543 /* PhotosCollectionViewModelTests.swift */,
 			);
 			path = TradeRevAssessmentTests;
 			sourceTree = "<group>";
@@ -205,6 +214,7 @@
 				38F909ED226E2223004FD543 /* Sources */,
 				38F909EE226E2223004FD543 /* Frameworks */,
 				38F909EF226E2223004FD543 /* Resources */,
+				037A4568CEF7FC5DB8178A9D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,6 +241,7 @@
 					};
 					38F909F0226E2223004FD543 = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 						TestTargetID = 38F909DC226E2222004FD543;
 					};
 				};
@@ -269,12 +280,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38F90A22226F4DE5004FD543 /* Photos_Success.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		037A4568CEF7FC5DB8178A9D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TradeRevAssessmentTests/Pods-TradeRevAssessmentTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TradeRevAssessmentTests/Pods-TradeRevAssessmentTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		38F90A1C226F45D1004FD543 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -394,6 +430,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38F90A1E226F4C4A004FD543 /* PhotosCollectionViewModelTests.swift in Sources */,
+				38F90A20226F4D5C004FD543 /* FakeWebService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +623,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TradeRevAssessmentTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -594,6 +633,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kohtenko.TradeRevAssessmentTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TradeRevAssessment.app/TradeRevAssessment";
@@ -606,6 +646,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TradeRevAssessmentTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

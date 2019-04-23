@@ -8,6 +8,7 @@ target 'TradeRevAssessment' do
 
   target 'TradeRevAssessmentTests' do
     inherit! :search_paths
+    pod 'RxBlocking'
   end
 
 end
