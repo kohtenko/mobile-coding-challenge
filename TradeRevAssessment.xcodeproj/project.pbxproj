@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		381C481E2270A21B00D0C43A /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381C481D2270A21B00D0C43A /* PageViewController.swift */; };
 		38F909E1226E2222004FD543 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F909E0226E2222004FD543 /* AppDelegate.swift */; };
 		38F909E3226E2222004FD543 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F909E2226E2222004FD543 /* PhotosCollectionViewController.swift */; };
 		38F909E6226E2222004FD543 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38F909E4226E2222004FD543 /* Main.storyboard */; };
@@ -21,8 +22,6 @@
 		38F90A10226EFB6B004FD543 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F90A0F226EFB6B004FD543 /* ResponseHandler.swift */; };
 		38F90A12226EFCAD004FD543 /* AppSchedulers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F90A11226EFCAD004FD543 /* AppSchedulers.swift */; };
 		38F90A15226EFDBA004FD543 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F90A14226EFDBA004FD543 /* PhotoCollectionViewCell.swift */; };
-		38F90A19226F16BF004FD543 /* FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F90A18226F16BF004FD543 /* FullScreenView.swift */; };
-		38F90A1B226F1876004FD543 /* FullScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F90A1A226F1876004FD543 /* FullScreenCollectionViewCell.swift */; };
 		38F90A1E226F4C4A004FD543 /* PhotosCollectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F90A1D226F4C4A004FD543 /* PhotosCollectionViewModelTests.swift */; };
 		38F90A20226F4D5C004FD543 /* FakeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F90A1F226F4D5C004FD543 /* FakeWebService.swift */; };
 		38F90A22226F4DE5004FD543 /* Photos_Success.json in Resources */ = {isa = PBXBuildFile; fileRef = 38F90A21226F4DE5004FD543 /* Photos_Success.json */; };
@@ -44,6 +43,7 @@
 		1201E4CE3F98403734EB98D2 /* Pods-TradeRevAssessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeRevAssessment.release.xcconfig"; path = "Pods/Target Support Files/Pods-TradeRevAssessment/Pods-TradeRevAssessment.release.xcconfig"; sourceTree = "<group>"; };
 		17DFA2071CBB462D9E901EF7 /* Pods_TradeRevAssessmentTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TradeRevAssessmentTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C072357CC661E009D1920F3 /* Pods-TradeRevAssessmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeRevAssessmentTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TradeRevAssessmentTests/Pods-TradeRevAssessmentTests.debug.xcconfig"; sourceTree = "<group>"; };
+		381C481D2270A21B00D0C43A /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		38F909DD226E2222004FD543 /* TradeRevAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradeRevAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F909E0226E2222004FD543 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38F909E2226E2222004FD543 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
@@ -62,8 +62,6 @@
 		38F90A0F226EFB6B004FD543 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
 		38F90A11226EFCAD004FD543 /* AppSchedulers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSchedulers.swift; sourceTree = "<group>"; };
 		38F90A14226EFDBA004FD543 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
-		38F90A18226F16BF004FD543 /* FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenView.swift; sourceTree = "<group>"; };
-		38F90A1A226F1876004FD543 /* FullScreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCollectionViewCell.swift; sourceTree = "<group>"; };
 		38F90A1D226F4C4A004FD543 /* PhotosCollectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewModelTests.swift; sourceTree = "<group>"; };
 		38F90A1F226F4D5C004FD543 /* FakeWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeWebService.swift; sourceTree = "<group>"; };
 		38F90A21226F4DE5004FD543 /* Photos_Success.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Photos_Success.json; sourceTree = "<group>"; };
@@ -168,8 +166,7 @@
 				38F90A02226EEFB9004FD543 /* PhotosCollectionViewModel.swift */,
 				38F90A14226EFDBA004FD543 /* PhotoCollectionViewCell.swift */,
 				38F90A00226E2273004FD543 /* FullScreenViewController.swift */,
-				38F90A1A226F1876004FD543 /* FullScreenCollectionViewCell.swift */,
-				38F90A18226F16BF004FD543 /* FullScreenView.swift */,
+				381C481D2270A21B00D0C43A /* PageViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -411,16 +408,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				38F90A0C226EF501004FD543 /* Endpoint.swift in Sources */,
+				381C481E2270A21B00D0C43A /* PageViewController.swift in Sources */,
 				38F909E3226E2222004FD543 /* PhotosCollectionViewController.swift in Sources */,
 				38F90A10226EFB6B004FD543 /* ResponseHandler.swift in Sources */,
 				38F909E1226E2222004FD543 /* AppDelegate.swift in Sources */,
 				38F90A01226E2273004FD543 /* FullScreenViewController.swift in Sources */,
-				38F90A19226F16BF004FD543 /* FullScreenView.swift in Sources */,
 				38F90A03226EEFB9004FD543 /* PhotosCollectionViewModel.swift in Sources */,
 				38F90A0E226EF85D004FD543 /* PhotosEndpoint.swift in Sources */,
 				38F90A12226EFCAD004FD543 /* AppSchedulers.swift in Sources */,
 				38F90A05226EF11D004FD543 /* Image.swift in Sources */,
-				38F90A1B226F1876004FD543 /* FullScreenCollectionViewCell.swift in Sources */,
 				38F90A15226EFDBA004FD543 /* PhotoCollectionViewCell.swift in Sources */,
 				38F90A09226EF315004FD543 /* WebService.swift in Sources */,
 			);

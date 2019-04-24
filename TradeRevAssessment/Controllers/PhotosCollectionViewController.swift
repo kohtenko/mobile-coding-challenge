@@ -109,7 +109,7 @@ extension PhotosCollectionViewController: UICollectionViewDelegate, UICollection
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "FullScreen", sender: indexPath.row)
+        performSegue(withIdentifier: "FullScreen1", sender: indexPath.row)
     }
 
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
@@ -137,7 +137,7 @@ extension PhotosCollectionViewController: UICollectionViewDelegate, UICollection
 extension PhotosCollectionViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let controller = segue.destination as? FullScreenViewController,
+        if let controller = segue.destination as? PageViewController,
             let index = sender as? Int {
             controller.photos = photos
             controller.startIndex = index
