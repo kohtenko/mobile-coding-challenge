@@ -17,6 +17,7 @@ class FullScreenViewController: UIViewController {
     var startIndex = 0
     weak var transitionDelegate: TransitionDelegate?
     private var isFirstLayout = true
+    private var ignoreSafeAreaChange = false
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bottomView: UIView!
@@ -38,7 +39,9 @@ class FullScreenViewController: UIViewController {
 
     override func viewSafeAreaInsetsDidChange() {
         super.viewSafeAreaInsetsDidChange()
-        setupCollectionView()
+        if !ignoreSafeAreaChange {
+            setupCollectionView()
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -51,6 +54,7 @@ class FullScreenViewController: UIViewController {
 
     @IBAction func dismissPressed() {
         transitionDelegate?.currentIndex = currentIndex
+        ignoreSafeAreaChange = true
         dismiss(animated: true)
     }
 
@@ -72,16 +76,12 @@ class FullScreenViewController: UIViewController {
         }
     }
 
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         let index = currentIndex
+        super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: { (_) in
             self.collectionView.collectionViewLayout.invalidateLayout()
-            let width: CGFloat
-            if newCollection.verticalSizeClass == .regular {
-                width = self.view.frame.width
-            } else {
-                width = self.view.frame.width - self.view.safeAreaInsets.right - self.view.safeAreaInsets.left
-            }
+            let width = self.view.frame.width - self.view.safeAreaInsets.right - self.view.safeAreaInsets.left
             self.collectionView.contentOffset.x = width * CGFloat(index)
         }, completion: nil)
     }

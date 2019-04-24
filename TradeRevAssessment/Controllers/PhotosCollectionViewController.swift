@@ -23,6 +23,7 @@ class PhotosCollectionViewController: UIViewController, TransitionDelegate {
     private let appSchedulers = AppSchedulers()
     private var isLoading = false
     private let preheater = ImagePreheater()
+    private var isFirstLayoutAfterAppearance = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +32,20 @@ class PhotosCollectionViewController: UIViewController, TransitionDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.reloadData()
-        collectionView.setNeedsLayout()
-        collectionView.layoutIfNeeded()
-        if currentIndex < photos.count {
-            collectionView.scrollToItem(at: IndexPath(row: currentIndex, section: 0), at: .centeredVertically, animated: true)
+        isFirstLayoutAfterAppearance = true
+
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if isFirstLayoutAfterAppearance {
+            isFirstLayoutAfterAppearance = false
+            collectionView.reloadData()
+            collectionView.setNeedsLayout()
+            collectionView.layoutIfNeeded()
+            if currentIndex < photos.count {
+                collectionView.scrollToItem(at: IndexPath(row: currentIndex, section: 0), at: .centeredVertically, animated: true)
+            }
         }
     }
 
@@ -67,8 +77,9 @@ class PhotosCollectionViewController: UIViewController, TransitionDelegate {
         })
     }
 
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-       coordinator.animate(alongsideTransition: { (_) in
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { (_) in
             self.collectionView.collectionViewLayout.invalidateLayout()
         }, completion: nil)
     }
