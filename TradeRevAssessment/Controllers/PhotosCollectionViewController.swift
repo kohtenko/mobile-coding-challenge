@@ -31,8 +31,11 @@ class PhotosCollectionViewController: UIViewController, TransitionDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        collectionView.reloadData()
+        collectionView.setNeedsLayout()
+        collectionView.layoutIfNeeded()
         if currentIndex < photos.count {
-            collectionView.scrollToItem(at: IndexPath(row: currentIndex, section: 0), at: .centeredVertically, animated: false)
+            collectionView.scrollToItem(at: IndexPath(row: currentIndex, section: 0), at: .centeredVertically, animated: true)
         }
     }
 
@@ -64,6 +67,12 @@ class PhotosCollectionViewController: UIViewController, TransitionDelegate {
         })
     }
 
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+       coordinator.animate(alongsideTransition: { (_) in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }, completion: nil)
+    }
+
 }
 
 extension PhotosCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDelegateFlowLayout {
@@ -73,11 +82,12 @@ extension PhotosCollectionViewController: UICollectionViewDelegate, UICollection
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as? PhotoCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell",
+                                                            for: indexPath) as? PhotoCollectionViewCell else {
             fatalError("No reusable cell")
         }
         let image = photos[indexPath.row]
-        cell.hero.id = "cell_\(image.id)"
+        cell.hero.id = image.id
         cell.image = image
 
         if indexPath.row == photos.count - 1 {
@@ -99,11 +109,15 @@ extension PhotosCollectionViewController: UICollectionViewDelegate, UICollection
         preheater.stopPreheating(with: urls(from: indexPaths))
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = collectionView.frame.width / 3
         return CGSize(width: size, height: size)
     }

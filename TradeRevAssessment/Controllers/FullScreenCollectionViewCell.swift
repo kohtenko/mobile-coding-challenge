@@ -10,6 +10,14 @@ import UIKit
 
 class FullScreenCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: FullScreenView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    var image: Image? {
+        didSet {
+            imageView.imageToDisplay = image
+            scrollView.zoomScale = 1
+        }
+    }
+
 }
 
 extension FullScreenCollectionViewCell: UIScrollViewDelegate {

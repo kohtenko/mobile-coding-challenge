@@ -16,7 +16,7 @@ class FullScreenViewController: UIViewController {
     var photos: [Image]?
     var startIndex = 0
     weak var transitionDelegate: TransitionDelegate?
-
+    private var isFirstLayout = true
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bottomView: UIView!
@@ -24,11 +24,6 @@ class FullScreenViewController: UIViewController {
 
     private var currentIndex: Int {
         return Int(collectionView.contentOffset.x / collectionView.frame.width)
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupCollectionView()
     }
 
     private func setupCollectionView() {
@@ -39,6 +34,19 @@ class FullScreenViewController: UIViewController {
                                     at: .centeredHorizontally,
                                     animated: false)
         didEndScrolling()
+    }
+
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        setupCollectionView()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if isFirstLayout {
+            isFirstLayout = false
+            setupCollectionView()
+        }
     }
 
     @IBAction func dismissPressed() {
@@ -64,6 +72,20 @@ class FullScreenViewController: UIViewController {
         }
     }
 
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        let index = currentIndex
+        coordinator.animate(alongsideTransition: { (_) in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+            let width: CGFloat
+            if newCollection.verticalSizeClass == .regular {
+                width = self.view.frame.width
+            } else {
+                width = self.view.frame.width - self.view.safeAreaInsets.right - self.view.safeAreaInsets.left
+            }
+            self.collectionView.contentOffset.x = width * CGFloat(index)
+        }, completion: nil)
+    }
+
 }
 
 extension FullScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -72,21 +94,25 @@ extension FullScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FullScreenImageCell", for: indexPath) as? FullScreenCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FullScreenImageCell",
+                                                            for: indexPath) as? FullScreenCollectionViewCell else {
             fatalError("No reusable cell")
         }
-        guard let image = photos?[indexPath.row] else { return cell }
-
-        cell.imageView.imageToDisplay = image
+        cell.image = photos?[indexPath.row]
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width,
+                      height: collectionView.frame.height)
     }
 
 }

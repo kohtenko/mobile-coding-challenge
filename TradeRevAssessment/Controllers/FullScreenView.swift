@@ -14,7 +14,7 @@ class FullScreenView: UIImageView {
     var imageToDisplay: Image? {
         didSet {
             guard let imageToDisplay = imageToDisplay else { return }
-            hero.id = "cell_\(imageToDisplay.id)"
+            hero.id = imageToDisplay.id
             Nuke.loadImage(
                 with: imageToDisplay.regularURL,
                 options: ImageLoadingOptions(
