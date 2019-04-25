@@ -54,8 +54,10 @@ class PageViewController: UIPageViewController {
     }
 
     @IBAction func dismissPressed() {
-        guard let controller = viewControllers?.first else { return }
-        guard let index = index(for: controller) else { return }
+        guard let controller = viewControllers?.first,
+            let index = index(for: controller) else {
+                return
+        }
         transitionDelegate?.currentIndex = index
         dismiss(animated: true)
     }
@@ -77,6 +79,22 @@ class PageViewController: UIPageViewController {
             self.bottomView.isHidden = !hidden
         }
     }
+
+    private func index(for controller: UIViewController) -> Int? {
+        guard let controller = controller as? FullScreenViewController,
+            let image = controller.image else {
+                return nil
+        }
+        return photos?.firstIndex { $0.id == image.id }
+    }
+
+    private func controller(for index: Int) -> UIViewController? {
+        guard let photos = photos, index >= 0, index < photos.count else { return nil }
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FullScreenViewController") as? FullScreenViewController
+        _ = controller?.view
+        controller?.image = photos[index]
+        return controller
+    }
 }
 
 extension PageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
@@ -91,30 +109,16 @@ extension PageViewController: UIPageViewControllerDelegate, UIPageViewController
         return controller(for: index + 1)
     }
 
-    private func index(for controller: UIViewController) -> Int? {
-        guard let controller = controller as? FullScreenViewController,
-        let image = controller.image else {
-            return nil
-        }
-        return photos?.firstIndex { $0.id == image.id }
-    }
-
-    private func controller(for index: Int) -> UIViewController? {
-        guard let photos = photos, index >= 0, index < photos.count else { return nil }
-        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FullScreenViewController") as? FullScreenViewController
-        _ = controller?.view
-        controller?.image = photos[index]
-        return controller
-    }
-
     func pageViewController(_ pageViewController: UIPageViewController,
                             didFinishAnimating finished: Bool,
                             previousViewControllers: [UIViewController],
                             transitionCompleted completed: Bool) {
-        guard completed else { return }
-        guard let controller = viewControllers?.first else { return }
-        guard let index = index(for: controller) else { return }
-        guard let image = photos?[index] else { return }
+        guard completed,
+            let controller = viewControllers?.first,
+            let index = index(for: controller),
+            let image = photos?[index] else {
+                return
+        }
 
         imageDescriptionLabel.text = image.imageDescription
     }

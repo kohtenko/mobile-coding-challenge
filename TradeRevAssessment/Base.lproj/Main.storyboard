@@ -90,8 +90,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="whi-7E-N7d" id="PH2-Da-wUF"/>
-                        <segue destination="c3c-FR-9HJ" kind="presentation" identifier="FullScreen" id="nvS-xl-OUe"/>
-                        <segue destination="wdG-Xe-5Dr" kind="presentation" identifier="FullScreen1" id="A8y-Yn-EMQ"/>
+                        <segue destination="wdG-Xe-5Dr" kind="presentation" identifier="FullScreen" id="A8y-Yn-EMQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

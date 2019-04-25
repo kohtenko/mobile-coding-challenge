@@ -16,8 +16,8 @@ class FullScreenViewController: UIViewController {
 
     var image: Image? {
         didSet {
+            imageView?.hero.id = image?.id
             guard let image = image else { return }
-            imageView?.hero.id = image.id
             Nuke.loadImage(
                 with: image.regularURL,
                 options: ImageLoadingOptions(

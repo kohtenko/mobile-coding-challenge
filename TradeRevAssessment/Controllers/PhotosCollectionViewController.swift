@@ -44,7 +44,9 @@ class PhotosCollectionViewController: UIViewController, TransitionDelegate {
             collectionView.setNeedsLayout()
             collectionView.layoutIfNeeded()
             if currentIndex < photos.count {
-                collectionView.scrollToItem(at: IndexPath(row: currentIndex, section: 0), at: .centeredVertically, animated: true)
+                collectionView.scrollToItem(at: IndexPath(row: currentIndex, section: 0),
+                                            at: .centeredVertically,
+                                            animated: true)
             }
         }
     }
@@ -109,7 +111,7 @@ extension PhotosCollectionViewController: UICollectionViewDelegate, UICollection
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "FullScreen1", sender: indexPath.row)
+        performSegue(withIdentifier: "FullScreen", sender: indexPath.row)
     }
 
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
